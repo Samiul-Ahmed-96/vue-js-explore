@@ -54,7 +54,7 @@
     <h3 v-else>The is else</h3>
     <h3 v-show="showName">V-show</h3>
   </div>
-  <div class="part-">
+  <div class="part-Three">
     <br /><br />
     <hr />
     <h2>List Rendering</h2>
@@ -67,7 +67,17 @@
         {{ color }}
       </h3>
     </div>
+    <h2>Object render key value pair</h2>
+    <h3 v-for="(value, index, key) in myInfo" :key="index">
+      {{ index }} {{ key }} {{ value }}
+    </h3>
   </div>
+  <hr />
+  <h2>Using template Array of string with condition</h2>
+  <hr />
+  <template v-for="name in names" :key="name">
+    <h3 v-if="name === 'Prova'">{{ name }}</h3>
+  </template>
 </template>
 
 <script>
@@ -95,12 +105,17 @@ export default {
         { name: "AAAAA", favColor: ["Black", "Blue"] },
         { name: "VVVVV", favColor: ["Yellow", "Red"] },
       ],
+      myInfo: {
+        name: "MD Samiul Ahmed",
+        Degree: "CSE",
+        City: "Dhaka",
+      },
     };
   },
 };
 </script>
 
-<style scoped>
+<style>
 .sold {
   color: red;
 }

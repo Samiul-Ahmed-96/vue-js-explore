@@ -1,13 +1,16 @@
 <template>
   <Binding />
+  <Methods />
 </template>
 
 <script>
 import Binding from "./components/Binding.vue";
+import Methods from "./components/Methods.vue";
 export default {
   name: "App",
   components: {
     Binding,
+    Methods,
   },
 };
 </script>
