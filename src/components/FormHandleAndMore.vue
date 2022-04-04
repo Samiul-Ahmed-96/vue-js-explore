@@ -153,6 +153,8 @@
   <hr />
 
   <input type="text" v-model="movieName" />
+  <input type="text" v-model="movieDetail.title" />
+  <input type="text" v-model="movieDetail.actor" />
 </template>
 
 <script>
@@ -189,6 +191,10 @@ export default {
       ],
       volume: 0,
       movieName: "Batman",
+      movieDetail: {
+        title: "",
+        actor: "",
+      },
     };
   },
   methods: {
@@ -220,6 +226,14 @@ export default {
         console.log("Movie name", newValue);
       },
       immediate: true,
+    },
+    movieDetail: {
+      handler(newValue) {
+        console.log(
+          `The name : ${newValue.title} and Actor is ${newValue.actor}`
+        );
+      },
+      deep: true,
     },
   },
 };
