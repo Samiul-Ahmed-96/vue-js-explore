@@ -116,7 +116,45 @@
       <button>Submit</button>
     </div>
   </form>
+  <div class="computed">
+    <hr />
+    <h2>Computed Properties</h2>
+    <hr />
+    <pre>
+      {{ JSON.stringify(items, null, 2) }}
+    </pre>
+    <button @click="items.push({ id: 4, title: 'Keyboard', price: 50 })">
+      Add item
+    </button>
+    <h3>{{ total }}</h3>
+  </div>
+  <div>
+    <hr />
+    <h2>Computed Properties and v-for</h2>
+    <hr />
+    <h3 v-for="item in expensiveItems" :key="item.id">
+      {{ item.title }} {{ item.price }}
+    </h3>
+  </div>
+  <div class="watchers">
+    <hr />
+    <h2>watchers - Volume tracker</h2>
+    <hr />
+    <h3>Volume-level (0-20)</h3>
+    <h3>{{ volume }}</h3>
+    <div>
+      <button @click="volume += 2">+</button>
+      <button @click="volume -= 2">-</button>
+    </div>
+  </div>
+
+  <hr />
+  <h2>watchers - immediate and deeper</h2>
+  <hr />
+
+  <input type="text" v-model="movieName" />
 </template>
+
 <script>
 export default {
   name: "Event-handling",
@@ -132,12 +170,56 @@ export default {
         yearsOfExperience: "",
         age: null,
       },
+      items: [
+        {
+          id: 1,
+          title: "TV",
+          price: 100,
+        },
+        {
+          id: 2,
+          title: "Phone",
+          price: 200,
+        },
+        {
+          id: 3,
+          title: "Laptop",
+          price: 300,
+        },
+      ],
+      volume: 0,
+      movieName: "Batman",
     };
   },
   methods: {
     submitForm(event) {
       event.preventDefault();
       console.log(this.formValues);
+    },
+  },
+  computed: {
+    total() {
+      console.log("total computed property");
+      return this.items.reduce(
+        (total, curr) => (total = total + curr.price),
+        0
+      );
+    },
+    expensiveItems() {
+      return this.items.filter((item) => item.price > 100);
+    },
+  },
+  watch: {
+    volume(newValue, oldValue) {
+      if (newValue > oldValue && newValue === 16) {
+        alert("too much high volume");
+      }
+    },
+    movieName: {
+      handler(newValue) {
+        console.log("Movie name", newValue);
+      },
+      immediate: true,
     },
   },
 };

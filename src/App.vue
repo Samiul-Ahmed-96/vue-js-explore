@@ -1,20 +1,20 @@
 <template>
   <Binding />
   <Methods />
-  <EventHandling />
+  <FormHandleAndMore />
 </template>
 
 <script>
 import Binding from "./components/Binding.vue";
 import Methods from "./components/Methods.vue";
-import EventHandling from "./components/EventHandling.vue";
+import FormHandleAndMore from "./components/FormHandleAndMore.vue";
 
 export default {
   name: "App",
   components: {
     Binding,
     Methods,
-    EventHandling,
+    FormHandleAndMore,
   },
 };
 </script>
