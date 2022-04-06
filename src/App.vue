@@ -34,6 +34,7 @@
   <TabA v-if="activeTab === 'TabA'" />
   <TabB v-if="activeTab === 'TabB'" />
   <TabC v-if="activeTab === 'TabC'" />
+  <Request />
 </template>
 
 <script>
@@ -46,6 +47,7 @@ import Slots from "./components/Slots.vue";
 import TabA from "./components/TabA.vue";
 import TabB from "./components/TabB.vue";
 import TabC from "./components/TabC.vue";
+import Request from "./components/Request.vue";
 
 export default {
   name: "App",
@@ -59,6 +61,7 @@ export default {
     TabA,
     TabB,
     TabC,
+    Request,
   },
   data() {
     return {

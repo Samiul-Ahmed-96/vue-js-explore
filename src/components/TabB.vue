@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "Tab-B",
+  name: "Tab-b",
 };
 </script>
 
