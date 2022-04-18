@@ -35,6 +35,14 @@
   <TabB v-if="activeTab === 'TabB'" />
   <TabC v-if="activeTab === 'TabC'" />
   <Request />
+  <hr>
+  <h2>Template refs load on focus</h2>
+  <div class="temRefs">
+    <input type="text" ref="inputRefs">
+  </div>
+
+  <HoverCounter/>
+  <ClickCounter/>
 </template>
 
 <script>
@@ -48,9 +56,14 @@ import TabA from "./components/TabA.vue";
 import TabB from "./components/TabB.vue";
 import TabC from "./components/TabC.vue";
 import Request from "./components/Request.vue";
+import HoverCounter from "./components/HoverCounter.vue";
+import ClickCounter from "./components/ClickCounter.vue";
 
 export default {
   name: "App",
+  mounted(){
+    this.$refs.inputRefs.focus()
+  },
   components: {
     Binding,
     Methods,
@@ -62,7 +75,11 @@ export default {
     TabB,
     TabC,
     Request,
+    HoverCounter,
+    ClickCounter
+
   },
+
   data() {
     return {
       popupShow: false,
