@@ -43,6 +43,9 @@
 
   <HoverCounter/>
   <ClickCounter/>
+  <hr><h2>Vuex</h2><hr>
+  <BookListOne :book="books"></BookListOne>
+  <BookListTwo :book="books"></BookListTwo>
 </template>
 
 <script>
@@ -58,7 +61,8 @@ import TabC from "./components/TabC.vue";
 import Request from "./components/Request.vue";
 import HoverCounter from "./components/HoverCounter.vue";
 import ClickCounter from "./components/ClickCounter.vue";
-
+import BookListOne from "./components/BokkListOne.vue";
+import BookListTwo from "./components/BookListTwo.vue";
 export default {
   name: "App",
   mounted(){
@@ -76,7 +80,10 @@ export default {
     TabC,
     Request,
     HoverCounter,
-    ClickCounter
+    ClickCounter,
+    BookListOne,
+    BookListTwo
+
 
   },
 
